@@ -1,0 +1,26 @@
+# Vivado generated files
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.runs/
+*.gen/
+*.xpr
+*.jou
+*.log
+*.str
+*.wdb
+*.sdb
+*.pb
+*.wpc
+*.wdf
+*.lpr
+*.xil/
+
+# XSim generated files
+xsim.dir/
+*.bat
+
+# OS files
+.DS_Store
+Thumbs.db
