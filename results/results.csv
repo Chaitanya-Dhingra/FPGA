@@ -1,0 +1,5 @@
+arch,source_file,part,period_ns,LUTs,FFs,CARRY4,DSP,MUXF7,MUXF8,WNS_ns,datapath_ns,logic_ns,net_ns,logic_levels,Fmax_MHz,power_total_W,power_dyn_W,power_static_W
+dadda,results_dadda.csv,xc7z020clg400-1,10,2662,96,12,0,0,0,-8.883,18.828,5.446,13.382,29,52.96,0.165,0.062,0.103
+array,results_array.csv,xc7z020clg400-1,10,1364,96,3,0,0,0,-32.171,42.119,7.792,34.327,53,23.71,0.144,0.041,0.103
+booth,results_booth.csv,xc7z020clg400-1,10,1368,96,28,0,0,0,-4.859,14.804,5.622,9.182,23,67.3,0.135,0.032,0.103
+wallace,results_wallace.csv,xc7z020clg400-1,10,1038,96,111,0,0,0,-4.667,14.154,5.714,8.44,24,68.18,0.122,0.019,0.103

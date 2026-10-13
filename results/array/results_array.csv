@@ -1,0 +1,2 @@
+arch,part,period_ns,LUTs,FFs,CARRY4,DSP,MUXF7,MUXF8,WNS_ns,datapath_ns,logic_ns,net_ns,logic_levels,Fmax_MHz,power_total_W,power_dyn_W,power_static_W
+array,xc7z020clg400-1,10.0,1364,96,3,0,0,0,-32.171,42.119,7.792,34.327,53,23.71,0.144,0.041,0.103

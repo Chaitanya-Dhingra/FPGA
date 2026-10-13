@@ -1,0 +1,2 @@
+arch,part,period_ns,LUTs,FFs,CARRY4,DSP,MUXF7,MUXF8,WNS_ns,datapath_ns,logic_ns,net_ns,logic_levels,Fmax_MHz,power_total_W,power_dyn_W,power_static_W
+wallace,xc7z020clg400-1,10.0,1038,96,111,0,0,0,-4.667,14.154,5.714,8.440,24,68.18,0.122,0.019,0.103
