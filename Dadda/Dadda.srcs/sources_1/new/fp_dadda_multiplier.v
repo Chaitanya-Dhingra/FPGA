@@ -23,7 +23,11 @@ wire sign = sign_a ^ sign_b;
 
 // -----------------------------
 // SPECIAL VALUE DETECTION
-// (denormals flushed to zero, same convention as the Wallace/Booth/Array FP multipliers)
+// Denormals are flushed to zero on BOTH inputs (DAZ) and outputs (FTZ),
+// same convention as the Wallace/Booth/Array FP multipliers and the golden
+// vector generator: an operand with exp==0 is a zero, so Inf x denormal
+// is Inf x 0 = NaN. Any NaN result is the canonical quiet NaN 7FC00000
+// (input NaN payloads and signs are NOT propagated).
 // -----------------------------
 wire a_is_zero_bits = (exp_a == 8'h00) && (mant_a == 23'h0);
 wire b_is_zero_bits = (exp_b == 8'h00) && (mant_b == 23'h0);
@@ -37,15 +41,14 @@ wire b_is_inf = (exp_b == 8'hFF) && (mant_b == 23'h0);
 wire a_is_nan = (exp_a == 8'hFF) && (mant_a != 23'h0);
 wire b_is_nan = (exp_b == 8'hFF) && (mant_b != 23'h0);
 
-// Inf x 0 -> NaN only for a true zero bit pattern
 wire special_nan  = a_is_nan || b_is_nan ||
-                    (a_is_inf && b_is_zero_bits) ||
-                    (b_is_inf && a_is_zero_bits);
+                    (a_is_inf && b_is_zero_eff) ||
+                    (b_is_inf && a_is_zero_eff);
 wire special_inf  = !special_nan && (a_is_inf || b_is_inf);
 wire special_zero = !special_nan && !special_inf &&
                     (a_is_zero_eff || b_is_zero_eff);
 
-wire [31:0] nan_result  = a_is_nan ? a : (b_is_nan ? b : 32'h7FC00000);
+wire [31:0] nan_result  = 32'h7FC00000;
 wire [31:0] inf_result  = {sign, 8'hFF, 23'h0};
 wire [31:0] zero_result = {sign, 8'h0,  23'h0};
 
