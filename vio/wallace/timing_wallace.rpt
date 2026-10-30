@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
-| Date         : Sat Oct 24 12:02:48 2026
+| Date         : Thu Oct 29 23:47:58 2026
 | Host         : THE-PHALANX running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -file F:/Major/vio/wallace/timing_wallace.rpt
 | Design       : fp_vio_top

@@ -1,5 +1,3 @@
-# show_result.py - compare FPGA blur against NumPy reference.
-# Run on the PC:  python F:/Major/show_result.py wallace      (or booth / dadda / array)
 import sys
 import numpy as np, matplotlib.pyplot as plt
 from scipy.ndimage import convolve
