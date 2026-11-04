@@ -14,7 +14,8 @@
 #   2. Out-of-context synthesis (no IO buffers / pin routing in the numbers).
 #   3. opt / place / route.
 #   4. Reports in F:/Major/results/<arch>/ and one row appended to
-#      F:/Major/results/results.csv
+#      F:/Major/results/results_timed.csv  (same columns as results.csv
+#      PLUS synth_s, impl_s, total_s = Vivado wall-clock build time)
 # =====================================================================
 
 # ---------------- user settings ----------------
@@ -126,16 +127,25 @@ proc run_flow {arch period part} {
     read_xdc $xdc
 
     # ---------- synthesis ----------
+    set t0 [clock seconds]
     synth_design -top $top -part $part -mode out_of_context
+    set t_synth_end [clock seconds]
     write_checkpoint -force $outdir/post_synth.dcp
     report_utilization -file $outdir/post_synth_util.rpt
     report_timing_summary -file $outdir/post_synth_timing.rpt
 
     # ---------- implementation ----------
+    set t_impl_start [clock seconds]
     opt_design
     place_design
     route_design
+    set t_impl_end [clock seconds]
     write_checkpoint -force $outdir/post_route.dcp
+
+    # build-time numbers (Vivado wall-clock; reporting/checkpoint writing excluded)
+    set synth_s [expr {$t_synth_end - $t0}]
+    set impl_s  [expr {$t_impl_end - $t_impl_start}]
+    set total_s [expr {$synth_s + $impl_s}]
 
     report_utilization                -file $outdir/post_route_util.rpt
     report_utilization -hierarchical  -file $outdir/post_route_util_hier.rpt
@@ -173,11 +183,11 @@ proc run_flow {arch period part} {
 
     lassign [parse_power $outdir/post_route_power.rpt] ptotal pdyn pstat
 
-    set header {arch part period_ns LUTs FFs CARRY4 DSP MUXF7 MUXF8 WNS_ns datapath_ns logic_ns net_ns logic_levels Fmax_MHz power_total_W power_dyn_W power_static_W}
-    set row    [list $arch $part $period $luts $ffs $carry $dsp $mux7 $mux8 $wns $dpd $dpl $dpn $levels $fmax $ptotal $pdyn $pstat]
+    set header {arch part period_ns LUTs FFs CARRY4 DSP MUXF7 MUXF8 WNS_ns datapath_ns logic_ns net_ns logic_levels Fmax_MHz power_total_W power_dyn_W power_static_W synth_s impl_s total_s}
+    set row    [list $arch $part $period $luts $ffs $carry $dsp $mux7 $mux8 $wns $dpd $dpl $dpn $levels $fmax $ptotal $pdyn $pstat $synth_s $impl_s $total_s]
     # per-architecture file first (never locked), then the shared table
-    append_csv $outdir/results_$arch.csv $header $row
-    append_csv $::OUTROOT/results.csv $header $row
+    append_csv $outdir/results_timed_$arch.csv $header $row
+    append_csv $::OUTROOT/results_timed.csv $header $row
 
     puts "================ $arch ($part, ${period} ns target) ================"
     foreach h $header v $row { puts [format "  %-16s %s" $h $v] }

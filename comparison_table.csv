@@ -1,0 +1,5 @@
+arch,LUTs,FFs_design,CARRY4,DSP,WNS_ns,crit_path_ns,Fmax_MHz,power_total_W,power_dyn_W,blur_maxdiff,deblur_maxdiff,deblur_PSNR_dB
+array,1364,0,3,0,-32.171,42.119,23.71,0.144,0.041,,,
+wallace,1038,0,111,0,-4.667,14.154,68.18,0.122,0.019,0.0,0.0,21.094
+dadda,2662,0,12,0,-8.883,18.828,52.96,0.165,0.062,,,
+booth,1368,0,28,0,-4.859,14.804,67.3,0.135,0.032,,,
