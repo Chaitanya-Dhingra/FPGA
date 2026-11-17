@@ -1,12 +1,12 @@
 # show_deblur.py - compare FPGA deblur against NumPy deblur (same Van Cittert algorithm).
-# Run on the PC:  python F:/Major/show_deblur.py wallace 3     (arch, iterations - must match ITER used)
+# Run on the PC:  python F:/Major/image_processing/show_deblur.py wallace 3     (arch, iterations - must match ITER used)
 import sys
 import numpy as np, matplotlib.pyplot as plt
 from scipy.ndimage import convolve
 
 ARCH = sys.argv[1] if len(sys.argv) > 1 else "wallace"
 ITER = int(sys.argv[2]) if len(sys.argv) > 2 else 3
-ROOT = "F:/Major"
+ROOT = "F:/Major/image_processing"
 
 orig = np.load(f"{ROOT}/orig.npy").astype(np.float64)
 blur = np.loadtxt(f"{ROOT}/blur_hw_{ARCH}.txt", skiprows=1)

@@ -9,7 +9,7 @@ import sys
 from PIL import Image
 import numpy as np
 
-ROOT = "F:/Major"
+ROOT = "F:/Major/image_processing"
 SRC = sys.argv[1] if len(sys.argv) > 1 else f"{ROOT}/photo.png"
 N   = int(sys.argv[2]) if len(sys.argv) > 2 else 16      # 16 = ~5 min per pass; 32 = ~21 min
 

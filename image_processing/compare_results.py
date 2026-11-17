@@ -1,20 +1,21 @@
 # compare_results.py - one table + chart comparing the four multiplier architectures:
 #   resources / timing / power (from run_flow results CSV), build time (if present),
 #   and image blur / deblur quality measured on the real FPGA.
-# Run on the PC:  python F:/Major/compare_results.py
+# Run on the PC:  python F:/Major/image_processing/compare_results.py
 import os, sys
 import numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 from scipy.ndimage import convolve
 
-ROOT = "F:/Major"
+ROOT = "F:/Major/image_processing"   # image files (orig.npy, blur_hw_*, deblur_hw_*) live here
+SYN  = "F:/Major"                     # synthesis results (results/ folder) stay here
 ARCHS = ["array", "wallace", "dadda", "booth"]
 ITER = int(sys.argv[1]) if len(sys.argv) > 1 else 3   # deblur iterations used on the FPGA
 
 # ---------- synthesis/implementation results ----------
-csv = f"{ROOT}/results/results_timed.csv"
+csv = f"{SYN}/results/results_timed.csv"
 if not os.path.exists(csv):
-    csv = f"{ROOT}/results/results.csv"
+    csv = f"{SYN}/results/results.csv"
 df = pd.read_csv(csv).drop_duplicates("arch", keep="last").set_index("arch")
 df = df.reindex([a for a in ARCHS if a in df.index])
 df["FFs_design"] = pd.to_numeric(df["FFs"], errors="coerce") - 96      # remove 96 wrapper regs

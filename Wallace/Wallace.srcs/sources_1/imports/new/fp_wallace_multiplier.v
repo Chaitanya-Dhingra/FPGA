@@ -143,7 +143,7 @@ wire [22:0] mantissa_norm = mant_product[47] ?
 // Saturate: biased exponent must land in [1,254] to be a normal
 // float32 result. Below that -> flush to zero; at/above 255 -> Inf.
 wire exp_overflow  = (exp_normalized >= 10'sd255);
-wire exp_underflow = (exp_normalized <= 10'sd0);
+wire exp_underflow = (exp_normalized < 10'sd0);
 
 wire [31:0] normal_result = exp_overflow  ? {sign, 8'hFF, 23'h0} :
                              exp_underflow ? {sign, 8'h0,  23'h0} :

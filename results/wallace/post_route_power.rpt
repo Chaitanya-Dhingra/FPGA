@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
-| Date             : Tue Oct  6 15:08:14 2026
+| Date             : Mon Nov 16 12:45:06 2026
 | Host             : THE-PHALANX running 64-bit major release  (build 9200)
 | Command          : report_power -file F:/Major/results/wallace/post_route_power.rpt
 | Design           : fp_wallace_multiplier_top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.122        |
+| Total On-Chip Power (W)  | 0.124        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.019        |
+| Dynamic (W)              | 0.021        |
 | Device Static (W)        | 0.103        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 83.6         |
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.007 |     1247 |       --- |             --- |
-|   LUT as Logic |     0.007 |      939 |     53200 |            1.77 |
-|   CARRY4       |    <0.001 |      111 |     13300 |            0.83 |
+| Slice Logic    |     0.009 |     1247 |       --- |             --- |
+|   LUT as Logic |     0.008 |     1052 |     53200 |            1.98 |
+|   CARRY4       |    <0.001 |       48 |     13300 |            0.36 |
 |   Register     |    <0.001 |       96 |    106400 |            0.09 |
 |   Others       |     0.000 |        2 |       --- |             --- |
-| Signals        |     0.010 |     1078 |       --- |             --- |
+| Signals        |     0.011 |     1135 |       --- |             --- |
 | Static Power   |     0.103 |          |           |                 |
-| Total          |     0.122 |          |           |                 |
+| Total          |     0.124 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -70,7 +70,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.026 |       0.019 |      0.007 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.029 |       0.021 |      0.007 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -146,7 +146,7 @@ Table of Contents
 +---------------------------+-----------+
 | Name                      | Power (W) |
 +---------------------------+-----------+
-| fp_wallace_multiplier_top |     0.019 |
+| fp_wallace_multiplier_top |     0.021 |
 +---------------------------+-----------+
 
 

@@ -12,7 +12,7 @@ fp_booth_multiplier uut(.a(a), .b(b), .result(result));
 initial begin
     errors = 0;
     total  = 0;
-    file = $fopen("vectors.txt", "r");
+    file = $fopen("F:/Major/Array/Array.srcs/sim_1/new/vectors.txt", "r");
     if (file == 0) begin
         $display("ERROR: could not open vectors.txt");
         $finish;

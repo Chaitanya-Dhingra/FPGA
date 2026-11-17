@@ -1,12 +1,12 @@
 # blur_vio.tcl - 3x3 Gaussian blur where every pixel*weight multiply runs on the real FPGA via VIO.
 # Vivado: Open Hardware Manager > Open Target > Auto Connect first, then in the Tcl Console:
 #   set ::ARCH wallace
-#   source F:/Major/blur_vio.tcl
-# Output: F:/Major/blur_hw_<arch>.txt
+#   source F:/Major/image_processing/blur_vio.tcl
+# Output: F:/Major/image_processing/blur_hw_<arch>.txt
 
 if {![info exists ::ARCH]} { set ::ARCH wallace }
 set viodir F:/Major/vio
-set root   F:/Major
+set root   F:/Major/image_processing
 
 # float <-> IEEE754 hex helpers
 proc f2hex {x} { binary scan [binary format f $x] i v; return [format %08x [expr {$v & 0xFFFFFFFF}]] }

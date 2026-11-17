@@ -3,7 +3,7 @@ import numpy as np, matplotlib.pyplot as plt
 from scipy.ndimage import convolve
 
 ARCH = sys.argv[1] if len(sys.argv) > 1 else "wallace"
-ROOT = "F:/Major"
+ROOT = "F:/Major/image_processing"
 
 orig = np.load(f"{ROOT}/orig.npy")
 hw = np.loadtxt(f"{ROOT}/blur_hw_{ARCH}.txt", skiprows=1)

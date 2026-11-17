@@ -1,17 +1,17 @@
 # deblur_vio.tcl - Van Cittert deblur; every pixel*weight multiply runs on the real FPGA via VIO.
 #   x0 = y (the FPGA-blurred image);   x(k+1) = clip( x(k) + y - H*x(k) , 0, 255 )
 #   H = the same 3x3 Gaussian (sigma=1) used for the blur. Each iteration = one full FPGA blur pass.
-# Needs F:/Major/blur_hw_<arch>.txt from blur_vio.tcl. Hardware Manager open + board connected.
+# Needs F:/Major/image_processing/blur_hw_<arch>.txt from blur_vio.tcl. Hardware Manager open + board connected.
 #   set_property PARAM.FREQUENCY 500000 [lindex [get_hw_targets] 0]   ;# if new session
 #   set ::ARCH wallace
 #   set ::ITER 3                      ;# optional, default 3  (~5 min per iteration at 16x16)
-#   source F:/Major/deblur_vio.tcl
-# Output: F:/Major/deblur_hw_<arch>.txt  (+ deblur_hw_<arch>_it<k>.txt after every iteration)
+#   source F:/Major/image_processing/deblur_vio.tcl
+# Output: F:/Major/image_processing/deblur_hw_<arch>.txt  (+ deblur_hw_<arch>_it<k>.txt after every iteration)
 
 if {![info exists ::ARCH]} { set ::ARCH wallace }
 if {![info exists ::ITER]} { set ::ITER 3 }
 set viodir F:/Major/vio
-set root   F:/Major
+set root   F:/Major/image_processing
 
 proc f2hex {x} { binary scan [binary format f $x] i v; return [format %08x [expr {$v & 0xFFFFFFFF}]] }
 proc hex2f {h} { binary scan [binary format i [scan $h %x]] f v; return $v }

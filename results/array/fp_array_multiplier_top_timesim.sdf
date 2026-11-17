@@ -1,7 +1,7 @@
 (DELAYFILE 
 (SDFVERSION "3.0" )
 (DESIGN "fp_array_multiplier_top")
-(DATE "Tue Oct  6 15:16:54 2026")
+(DATE "Mon Nov 16 13:07:09 2026")
 (VENDOR "XILINX")
 (PROGRAM "Vivado")
 (VERSION "2026.1")
