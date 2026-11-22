@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from scipy.ndimage import convolve
 
 ROOT = "F:/Major/image_processing"   # image files (orig.npy, blur_hw_*, deblur_hw_*) live here
-SYN  = "F:/Major"                     # synthesis results (results/ folder) stay here
+SYN  = "F:\Major\results"                     # synthesis results (results/ folder) stay here
 ARCHS = ["array", "wallace", "dadda", "booth"]
 ITER = int(sys.argv[1]) if len(sys.argv) > 1 else 3   # deblur iterations used on the FPGA
 

@@ -21,7 +21,7 @@
 # ---------------- user settings ----------------
 set ::OUTROOT  "F:/Major/results"
 set ::DEF_PART "xc7z020clg400-1"
-set ::DEF_PERIOD 10.0
+set ::DEF_PERIOD 50.0
 # ------------------------------------------------
 
 # Returns {root dut file_list}. Files are relative to root.

@@ -28,7 +28,7 @@ proc arch_config {arch} {
     switch -- $arch {
         wallace {
             return [list F:/Major/Wallace/Wallace.srcs/sources_1 fp_wallace_multiplier \
-                {imports/new/fp_wallace_multiplier.v imports/new/wallace8.v imports/new/csa.v}]
+                {imports/new/fp_wallace_multiplier.v imports/new/wallace8.v imports/new/csa.v imports/new/half_adder.v imports/new/full_adder.v}]
         }
         booth {
             return [list F:/Major/Booth/Booth.srcs/sources_1 fp_booth_multiplier \
