@@ -1,0 +1,2 @@
+arch,part,period_ns,LUTs,FFs,CARRY4,DSP,MUXF7,MUXF8,WNS_ns,Tmin_ns,datapath_ns,logic_ns,net_ns,logic_levels,Fmax_MHz,power_total_W,power_dyn_W,power_static_W,synth_s,impl_s,total_s
+dadda,xc7z020clg400-1,10.0,995,96,48,0,0,0,-3.461,13.461,13.406,5.431,7.975,22,74.29,0.124,0.021,0.103,233,680,913
